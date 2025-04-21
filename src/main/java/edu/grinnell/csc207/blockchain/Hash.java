@@ -57,6 +57,9 @@ public class Hash {
         for (int i = 0; i < this.data.length; i++) {
             num = Byte.toUnsignedInt(this.data[i]);
             String result = "%x";
+            if (num < 16) {
+                indiInt = indiInt.concat("0");
+            }
             indiInt = indiInt.concat(String.format(result, num));
         }
         return indiInt;

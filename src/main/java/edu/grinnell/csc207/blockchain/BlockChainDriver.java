@@ -24,7 +24,7 @@ public class BlockChainDriver {
         }
         BlockChain bc = new BlockChain(Integer.parseInt(args[0]));
         Scanner myObj = new Scanner(System.in);
-        System.out.println(bc.toString());
+        System.out.printf(bc.toString());
         System.out.printf("Command? ");
         String command = myObj.nextLine();
         while (!command.equals("quit")) {
@@ -69,7 +69,7 @@ public class BlockChainDriver {
                 System.out.println(
                         "You did not enter a valid command. Please run this program again; if unsure, type help for a list of valid commands.");
             }
-            System.out.println(bc.toString());
+            System.out.printf("\n" + bc.toString());
             System.out.printf("Command? ");
             command = myObj.nextLine();
         }
