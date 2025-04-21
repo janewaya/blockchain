@@ -7,7 +7,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- *
  * A single block of a blockchain.
  *
  */
@@ -18,7 +17,7 @@ public class Block {
     Hash prevHash;
     long nonce;
     Hash hash;
-    public int nonce_set = 1;
+    public int nonceSet = 1;
 
     /**
      * Creates a new Block object
@@ -32,10 +31,11 @@ public class Block {
             this.num = num;
             this.amount = amount;
             this.prevHash = prevHash;
-            nonce_set++;
-            this.nonce = nonce_set;
+            nonceSet++;
+            this.nonce = nonceSet;
             if (num != 0) {
-                this.hash = new Hash(calculateHash(this.num, this.amount, this.prevHash, this.nonce));
+                this.hash = new Hash(calculateHash(this.num, this.amount, 
+                                                   this.prevHash, this.nonce));
             } else {
                 this.hash = new Hash(calculateHashFirst(this.num, this.amount, this.nonce));
             }
@@ -71,7 +71,8 @@ public class Block {
      * @param nonce the nonce of the block
      * @return byte[] Returns a hash for a new block
      */
-    public static byte[] calculateHash(Integer num, Integer amount, Hash prevHash, Long nonce) throws NoSuchAlgorithmException {
+    public static byte[] calculateHash(Integer num, Integer amount, Hash prevHash, 
+                                       Long nonce) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("sha-256");
         byte[] bytes1 = ByteBuffer.allocate(4).putInt(num).array();
         md.update(bytes1);
@@ -92,7 +93,8 @@ public class Block {
      * @param nonce the nonce of the block
      * @return byte[] Returns a hash for a new block
      */
-    public static byte[] calculateHashFirst(Integer num, Integer amount, Long nonce) throws NoSuchAlgorithmException {
+    public static byte[] calculateHashFirst(Integer num, Integer amount, 
+                                            Long nonce) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("sha-256");
         byte[] bytes1 = ByteBuffer.allocate(4).putInt(num).array();
         md.update(bytes1);
@@ -142,7 +144,6 @@ public class Block {
     }
 
     /**
-     *
      * Returns the hash of the block in the blockchain
      *
      * @return Hash the hash of the block
@@ -152,7 +153,6 @@ public class Block {
     }
 
     /**
-     *
      * Returns the block of the blockChain in string format
      *
      * @return String the string representation of the block.
@@ -164,6 +164,7 @@ public class Block {
             return String.format(result2, this.num, this.amount, this.nonce, this.hash.toString());
         }
         String result1 = "Block %d (Amount: %d, Nonce: %d, prevHash: %s, hash: %s)";
-        return String.format(result1, this.num, this.amount, this.nonce, this.prevHash.toString(), this.hash.toString());
+        return String.format(result1, this.num, this.amount, this.nonce, 
+                             this.prevHash.toString(), this.hash.toString());
     }
 }

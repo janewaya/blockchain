@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 /**
- *
  * The main driver for the block chain program.
  *
  */
@@ -66,8 +65,9 @@ public class BlockChainDriver {
                         + "     help: prints this list of commands\n"
                         + "     quit: quits the program");
             } else {
-                System.out.println(
-                        "You did not enter a valid command. Please run this program again; if unsure, type help for a list of valid commands.");
+                System.out.println("You did not enter a valid command. "
+                        + "Please run this program again; if unsure, type help "
+                        + "for a list of valid commands.");
             }
             System.out.printf("\n" + bc.toString());
             System.out.printf("Command? ");

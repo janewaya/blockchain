@@ -9,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
 public class BlockChain {
 
     /**
-     *
      * A linked implementation of BlockChain.
      *
      */
@@ -29,7 +28,6 @@ public class BlockChain {
     private int size;
 
     /**
-     *
      * Creates and initializes a BlockChain
      *
      * @param initial Takes the initial amount for the BlockChain
@@ -48,7 +46,7 @@ public class BlockChain {
     /**
      * Creates a new block
      *
-     * @param mine Takes an amount for the BlockChain
+     * @param amount Takes an amount for the BlockChain
      * @return Block - a new block
      */
     public Block mine(int amount) throws NoSuchAlgorithmException {
@@ -67,7 +65,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Returns the size of the BlockChain
      *
      * @return int returns the BlockChain size
@@ -77,7 +74,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Adds a node to the end of the BlockChain
      *
      * @param blk the block to add to the end of the BlockChain
@@ -91,7 +87,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Returns the number of nodes in the BlockChain
      *
      * @return the number of elements in the BlockChain
@@ -101,7 +96,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Removes the last Node from the BlockChain
      *
      * @return boolean - if there was a node to remove
@@ -123,7 +117,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Returns the last Hash in the BlockChain
      *
      * @return Hash - the hash of the last block
@@ -133,7 +126,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Checks if the BlockChain is currently valid
      *
      * @return boolean - if the amounts within the BlockChain represent a valid
@@ -157,7 +149,6 @@ public class BlockChain {
     }
 
     /**
-     *
      * Prints the balances of Anna and Bob
      *
      *
@@ -166,21 +157,20 @@ public class BlockChain {
         if (size < 1) {
             System.out.println("Anna: " + this.first.block.amount + ", Bob: 0");
         }
-        int Anna = 0;
-        int Bob = 0;
+        int anna = 0;
+        int bob = 0;
         Node hold = this.first;
         for (int i = 0; i < this.size; i++) {
-            Anna += hold.block.amount;
+            anna += hold.block.amount;
             if (hold != this.first) {
-                Bob += hold.block.amount * -1;
+                bob += hold.block.amount * -1;
             }
             hold = hold.nextNode;
         }
-        System.out.println("Anna: " + Anna + ", Bob: " + Bob);
+        System.out.println("Anna: " + anna + ", Bob: " + bob);
     }
 
     /**
-     *
      * Prints the blocks within the BlockChain as a string of values.
      *
      * @return String - the String representation of every block in the
