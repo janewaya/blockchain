@@ -1,9 +1,11 @@
 # Project: Block Chain
 
-Authors: (_TODO: fill in names here!_)
+
+Authors: Alex Janeway
+
 
 ## Resources
 
-*   (_TODO: fill in resources here!_)
-*   ...
-*   ...
+*   Visual Studio Code
+*   Java Version 17
+*   https://osera.cs.grinnell.edu/ttap/data-structures-labs/block-chain.html (TTAP: Data Structure-Lab Manual)
